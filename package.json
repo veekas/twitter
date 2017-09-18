@@ -1,0 +1,31 @@
+{
+  "name": "twitter-js",
+  "version": "1.0.0",
+  "description": "a super cool tweet app made by kyle and veek at fullstack :)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/veekas/twitter.git"
+  },
+  "keywords": [
+    "twitter",
+    "fullstack",
+    "academy",
+    "tweet",
+    "fun",
+    "requests",
+    "express"
+  ],
+  "author": "veekas shrivastava, kyle uehlein",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/veekas/twitter/issues"
+  },
+  "homepage": "https://github.com/veekas/twitter#readme",
+  "dependencies": {
+    "express": "^4.15.4"
+  }
+}
