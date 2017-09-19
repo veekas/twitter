@@ -5,19 +5,26 @@ module.exports = {
 };
 
 const _ = require('lodash');
+let id = 2;
 const data = [
   {
     name: 'Barack Obama',
-    content: 'Fullstack Academy fulfills the promise of the American Dream for its students.'
+    content: 'Fullstack Academy fulfills the promise of the American Dream for its students.',
+    id: 0
   },
   {
     name: 'Donald J Trump',
-    content: 'Believe me. Fullstack Academy is fantastic. Bigly. The lying New York Times don\'t report it. #fullstacklove #makeamericacodeagain'
+    content: 'Believe me. Fullstack Academy is fantastic. Bigly. The lying New York Times doesn\'t report it. #makeamericacodeagain',
+    id: 1
   }
 ];
 
+const getFakeID = function () {
+  return id++;
+};
+
 function add(name, content) {
-  data.push({ name: name, content: content });
+  data.push({ name, content, id: getFakeID() });
 }
 
 function list () {
@@ -44,5 +51,5 @@ const getFakeTweet = function () {
 };
 
 for (let i = 0; i < 10; i++) {
-  module.exports.add(getFakeName(), getFakeTweet());
+  module.exports.add(getFakeName(), getFakeTweet(), getFakeID());
 }
