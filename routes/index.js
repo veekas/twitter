@@ -13,15 +13,15 @@ router.get('/', (req, res) => {
 });
 
 router.get('/users/:name', (req, res) => {
-  const name = req.params.name;
-  const list = tweetBank.find({ name });
-  res.render('index', { list, showForm: true });
+  // const name = req.params.name;
+  const tweetsForName = tweetBank.find({ name: req.params.name });
+  res.render('index', { title: `Tweets by ${req.params.name}`, tweets: tweetsForName });
 });
 
-router.get('/users/:name', (req, res) => {
-  const name = req.params.name;
-  res.render('index', { name });
-});
+// router.get('/users/:name', (req, res) => {
+//   const tweetsForName = TweetBank.find;
+//   res.render('index', ;
+// });
 
 router.get('/tweets/:id', (req, res) => {
   const id = +req.params.id;
