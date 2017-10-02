@@ -2,16 +2,25 @@ const express = require('express');
 const app = express();
 const morgan = require('morgan');
 const nunjucks = require('nunjucks');
+const router = require('./routes');
 
 const portNum = 4231;
+let locals = {
+  title: 'An Example',
+  people: [
+    { name: 'Gandalf' },
+    { name: 'Frodo' },
+    { name: 'Hermione' }
+  ]
+};
+
+app.use(router);
 
 app.use(morgan('dev'));
 
-nunjucks.configure('views');
-nunjucks.render('index.html', locals, function (err, output) {
-  if (err) return console.error(err);
-  console.log(output);
-})
+nunjucks.configure('views', { noCache: true });
+app.set('view engine', 'html');
+app.engine('html', nunjucks.render);
 
 app.use('/special/', function (req, res, next) {
   res.send('you reached the special area.');
@@ -19,7 +28,11 @@ app.use('/special/', function (req, res, next) {
 });
 
 app.get('/', function (req, res) {
-  res.send('root route').status(200);
+  nunjucks.render('index.html', locals, function (err, output) {
+    if (err) return console.error(err);
+    res.send(output);
+  });
+  // res.send('root route').status(200);
   // res.sendStatus(200, 'root test');
 });
 
