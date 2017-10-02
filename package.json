@@ -1,0 +1,17 @@
+{
+  "name": "twitter-js-redo",
+  "version": "1.0.0",
+  "description": "redoing the twitter-js workshop on my own",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "author": "veekas shrivastava",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.1",
+    "morgan": "^1.9.0",
+    "nunjucks": "^3.0.1"
+  }
+}
